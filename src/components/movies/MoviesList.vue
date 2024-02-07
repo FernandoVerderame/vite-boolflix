@@ -1,9 +1,15 @@
 <script>
+import MoviesCard from './MoviesCard.vue';
+
 export default {
-    name: 'MoviesList'
+    name: 'MoviesList',
+
+    components: { MoviesCard }
 };
 </script>
 
-<template></template>
+<template>
+    <MoviesCard />
+</template>
 
 <style lang="scss" scoped></style>
