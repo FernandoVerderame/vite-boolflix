@@ -1,14 +1,14 @@
 <script>
 import axios from 'axios';
-import { apiUri } from './data';
+import { apiUri } from './data/index';
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
-import AppMain from './components/AppMain.vue';
+import MoviesList from './components/movies/MoviesList.vue';
 
 export default {
     name: 'Boolflix',
 
-    components: { AppHeader, AppMain },
+    components: { AppHeader, MoviesList },
 
     methods: {
         fetchMovies(endpoint = apiUri) {
@@ -27,7 +27,10 @@ export default {
 
 <template>
     <AppHeader />
-    <AppMain />
+
+    <main id="screen">
+        <MoviesList />
+    </main>
 </template>
 
 <style lang="scss">
