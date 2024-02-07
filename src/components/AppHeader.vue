@@ -1,9 +1,15 @@
 <script>
+import SearchForm from './SearchForm.vue';
+
 export default {
-    name: 'AppHeader'
+    name: 'AppHeader',
+
+    components: { SearchForm }
 };
 </script>
 
-<template></template>
+<template>
+    <SearchForm />
+</template>
 
 <style lang="scss" scoped></style>
