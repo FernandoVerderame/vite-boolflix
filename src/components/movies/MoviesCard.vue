@@ -1,6 +1,13 @@
 <script>
 export default {
-    name: 'MoviesCard'
+    name: 'MoviesCard',
+
+    props: {
+        title: String,
+        originalTitle: String,
+        language: String,
+        vote: Number
+    }
 };
 </script>
 
