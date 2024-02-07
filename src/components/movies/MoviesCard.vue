@@ -11,6 +11,13 @@ export default {
 };
 </script>
 
-<template></template>
+<template>
+    <div class="movies-card">
+        <div>{{ title }}</div>
+        <div>{{ originalTitle }}</div>
+        <div>{{ language }}</div>
+        <div>{{ vote }}</div>
+    </div>
+</template>
 
 <style lang="scss" scoped></style>
