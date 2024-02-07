@@ -1,6 +1,10 @@
 <script>
 export default {
-    name: 'SearchForm'
+    name: 'SearchForm',
+    data: () => ({ searchTerm: '' }),
+    props: {
+        placeholder: String
+    }
 };
 </script>
 
