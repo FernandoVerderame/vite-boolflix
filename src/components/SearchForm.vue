@@ -4,6 +4,11 @@ export default {
 };
 </script>
 
-<template></template>
+<template>
+    <form>
+        <input type="text">
+        <button>Cerca</button>
+    </form>
+</template>
 
 <style lang="scss" scoped></style>
