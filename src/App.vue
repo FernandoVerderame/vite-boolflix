@@ -3,14 +3,14 @@ import axios from 'axios';
 import { api } from './data/index'
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
-import ProductionList from './components/movies/ProductionList.vue';
+import AppMain from './components/AppMain.vue';
 
 export default {
     name: 'Boolflix',
 
     data: () => ({ store }),
 
-    components: { AppHeader, ProductionList },
+    components: { AppHeader, AppMain },
 
     methods: {
         setTitleFilter(term) {
@@ -48,9 +48,7 @@ export default {
 <template>
     <AppHeader @search-productions="searchProductions" @term-change="setTitleFilter" />
 
-    <main id="screen">
-        <ProductionList />
-    </main>
+    <AppMain />
 </template>
 
 <style lang="scss">
