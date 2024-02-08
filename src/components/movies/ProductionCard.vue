@@ -1,4 +1,6 @@
 <script>
+import { baseUriPoster } from '../../data/index'
+
 export default {
     name: 'MoviesCard',
 
@@ -21,7 +23,18 @@ export default {
             const url = new URL(`../../assets/img/${this.production.original_language}.png`, import.meta.url);
 
             return url.href;
-        }
+        },
+        hasPoster() {
+            const posters = [`${this.production.poster_path}`];
+
+            return posters.includes(this.production.poster_path);
+        },
+        posterSrc() {
+            const url = new URL(`${baseUriPoster}` + `${this.production.poster_path}`, import.meta.url);
+
+            return url.href;
+        },
+
     }
 };
 </script>
@@ -35,7 +48,15 @@ export default {
             <span v-else>{{ production.original_language }}</span>
         </div>
         <div>{{ production.vote_average }}</div>
+        <div>
+            <img v-if="hasPoster" :src="posterSrc" :alt="production.poster_path">
+            <img class="poster-image" v-else src="../../assets/img/poster-path.jpg" alt="poster-path">
+        </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.poster-image {
+    width: 342px;
+}
+</style>
