@@ -16,34 +16,37 @@ export default {
         setTitleFilter(term) {
             store.filter = term;
         },
-        searchMovies() {
+        searchProductions() {
             if (!store.filter) {
                 store.movies = [];
+                store.series = [];
                 return;
             }
 
-            const { baseUri, language, apiKey } = api;
+            this.fetchApi("search/movie", 'movies');
+            this.fetchApi("search/tv", 'series');
+        },
 
+        fetchApi(endpoint, collection) {
+            const { baseUri, language, apiKey } = api;
             const params = {
                 query: store.filter,
                 api_key: apiKey,
                 language
             }
-
-            axios.get(`${baseUri}/search/movie`, { params })
+            axios.get(`${baseUri}/${endpoint}`, { params })
                 .then((res) => {
-                    store.movies = res.data.results;
+                    store[collection] = res.data.results;
                 }).catch((err) => {
                     console.log(err)
                 })
         }
-
     }
 };
 </script>
 
 <template>
-    <AppHeader @search-movies="searchMovies" />
+    <AppHeader @search-movies="searchProductions" @term-change="setTitleFilter" />
 
     <main id="screen">
         <MoviesList />
