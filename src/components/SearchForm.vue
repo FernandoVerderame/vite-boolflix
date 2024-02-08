@@ -9,13 +9,13 @@ export default {
         placeholder: String
     },
 
-    emits: ['submit-search']
+    emits: ['submit-search', 'term-change']
 };
 </script>
 
 <template>
-    <form @submit.prevent="$emit('submit-search', searchTerm)">
-        <input type="text" :placeholder="placeholder" v-model.trim="searchTerm">
+    <form @submit.prevent="$emit('submit-search')">
+        <input type="text" :placeholder="placeholder" v-model.trim="searchTerm" @keyup="$emit('term-change', searchTerm)">
         <button>{{ buttonLabel }}</button>
     </form>
 </template>

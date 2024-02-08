@@ -33,6 +33,7 @@ export default {
                 api_key: apiKey,
                 language
             }
+
             axios.get(`${baseUri}/${endpoint}`, { params })
                 .then((res) => {
                     store[collection] = res.data.results;

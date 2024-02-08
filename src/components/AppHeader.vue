@@ -11,8 +11,8 @@ export default {
 </script>
 
 <template>
-    <SearchForm @submit-search="$emit('search-productions', 'term-change')" placeholder="Scrivi qui..."
-        buttonLabel="Cerca" />
+    <SearchForm @submit-search="$emit('search-productions')" @term-change="$emit('term-change', $event)"
+        placeholder="Scrivi qui..." buttonLabel="Cerca" />
 </template>
 
 <style lang="scss" scoped></style>
