@@ -26,7 +26,6 @@ export default {
             this.fetchApi("search/movie", 'movies');
             this.fetchApi("search/tv", 'series');
         },
-
         fetchApi(endpoint, collection) {
             const { baseUri, language, apiKey } = api;
             const params = {
@@ -46,7 +45,7 @@ export default {
 </script>
 
 <template>
-    <AppHeader @search-movies="searchProductions" @term-change="setTitleFilter" />
+    <AppHeader @search-productions="searchProductions" @term-change="setTitleFilter" />
 
     <main id="screen">
         <MoviesList />
