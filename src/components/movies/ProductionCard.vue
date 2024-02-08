@@ -18,7 +18,7 @@ export default {
             return flags.includes(this.production.original_language);
         },
         flagSrc() {
-            const url = new URL(`../assets/img/${this.production.original_language}.png`, import.meta.url);
+            const url = new URL(`../../assets/img/${this.production.original_language}.png`, import.meta.url);
 
             return url.href;
         }

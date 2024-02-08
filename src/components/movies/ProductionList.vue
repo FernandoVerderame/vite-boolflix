@@ -5,9 +5,9 @@ import ProductionCard from './ProductionCard.vue';
 export default {
     name: 'MoviesList',
 
-    components: { ProductionCard },
+    data: () => ({ store }),
 
-    data: () => ({ store })
+    components: { ProductionCard }
 };
 </script>
 
