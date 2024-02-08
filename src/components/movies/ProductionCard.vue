@@ -34,7 +34,9 @@ export default {
 
             return url.href;
         },
-
+        roundedVote() {
+            return Math.floor(this.production.vote_average / 2 + 1);
+        }
     }
 };
 </script>
@@ -47,7 +49,7 @@ export default {
             <img v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
             <span v-else>{{ production.original_language }}</span>
         </div>
-        <div>{{ production.vote_average }}</div>
+        <div>{{ roundedVote }}</div>
         <div>
             <img v-if="hasPoster" :src="posterSrc" :alt="production.poster_path">
             <img class="poster-image" v-else src="../../assets/img/poster-path.jpg" alt="poster-path">
