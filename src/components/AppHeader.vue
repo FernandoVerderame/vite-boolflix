@@ -29,8 +29,19 @@ export default {
                     </ul>
                 </div>
             </div>
-            <SearchForm @submit-search="$emit('search-productions')" @term-change="$emit('term-change', $event)"
-                placeholder="Scrivi qui..." buttonLabel="Cerca" />
+            <div class="nav-right d-flex align-items-center">
+                <SearchForm @submit-search="$emit('search-productions')" @term-change="$emit('term-change', $event)"
+                    placeholder="Scrivi qui..." buttonLabel="Cerca" />
+                <div class="notifications">
+                    <a href="#">
+                        <FontAwesomeIcon icon="fa-solid fa-bell" class="fa-2x m-3 bell" />
+                        <div class="number-not">1</div>
+                    </a>
+                </div>
+                <div class="profile-icon">
+                    <img src="../assets/img/profile-icon.png" alt="profile">
+                </div>
+            </div>
         </div>
     </header>
 </template>
@@ -49,6 +60,14 @@ header {
             width: 250px;
         }
     }
+
+    .nav-right {
+        img {
+            width: 50px;
+            background-color: dodgerblue;
+            box-shadow: 0px 0px 8px black;
+        }
+    }
 }
 
 ul li a {
@@ -60,6 +79,26 @@ ul li a {
     &:hover {
         background-color: black;
         transition: .4s;
+    }
+}
+
+.notifications {
+    position: relative;
+
+    .bell {
+        color: #000;
+    }
+
+    .number-not {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-weight: 600;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: dodgerblue;
     }
 }
 </style>

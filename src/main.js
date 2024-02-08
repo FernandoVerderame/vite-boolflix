@@ -5,9 +5,9 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faStar, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faStar, faMagnifyingGlass, faBell } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faStar, faMagnifyingGlass);
+library.add(faStar, faMagnifyingGlass, faBell);
 
 const app = createApp(App)
 
