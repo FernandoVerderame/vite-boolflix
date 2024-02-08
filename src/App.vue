@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import { apiUri } from './data/index';
+import { api } from './data/index'
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
 import MoviesList from './components/movies/MoviesList.vue';
@@ -8,25 +8,42 @@ import MoviesList from './components/movies/MoviesList.vue';
 export default {
     name: 'Boolflix',
 
+    data: () => ({ store }),
+
     components: { AppHeader, MoviesList },
 
     methods: {
-        fetchMovies(endpoint = apiUri) {
-            axios.get(endpoint).then(res => {
-                const movies = res.data.results;
+        setTitleFilter(term) {
+            store.filter = term;
+        },
+        searchMovies() {
+            if (!store.filter) {
+                store.movies = [];
+                return;
+            }
 
-                store.movies = movies.map(movie => {
-                    const { title, originalTitle, language, vote } = movie;
-                    return { title, originalTitle, language, vote };
-                });
-            })
+            const { baseUri, language, apiKey } = api;
+
+            const params = {
+                query: store.filter,
+                api_key: apiKey,
+                language
+            }
+
+            axios.get(`${baseUri}/search/movie`, { params })
+                .then((res) => {
+                    store.movies = res.data.results;
+                }).catch((err) => {
+                    console.log(err)
+                })
         }
+
     }
 };
 </script>
 
 <template>
-    <AppHeader />
+    <AppHeader @search-movies="searchMovies" />
 
     <main id="screen">
         <MoviesList />
