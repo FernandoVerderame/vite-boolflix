@@ -58,6 +58,7 @@ export default {
                 <div>
                     <i v-for="n in 5" :key="n" class="fa-star" :class="n <= roundedVote ? 'fas' : 'far'"></i>
                 </div>
+                <div>{{ production.overview }}</div>
             </div>
         </div>
     </div>
@@ -96,6 +97,7 @@ export default {
     height: 550px;
     border: 1px solid black;
     box-shadow: 0px 0px 20px black;
+    padding: 15px;
 
     .language img {
         width: 30px;
