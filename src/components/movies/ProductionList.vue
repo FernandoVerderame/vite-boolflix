@@ -21,7 +21,7 @@ export default {
 
     <section class="py-5">
         <h2 class="mb-4">Series</h2>
-        <div class="row">
+        <div class="row layout">
             <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
         </div>
     </section>
