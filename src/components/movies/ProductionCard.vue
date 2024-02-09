@@ -55,7 +55,9 @@ export default {
                     <img v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
                     <span v-else>{{ production.original_language }}</span>
                 </div>
-                <div>{{ roundedVote }}</div>
+                <div>
+                    <i v-for="n in 5" :key="n" class="fa-star" :class="n <= roundedVote ? 'fas' : 'far'"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -92,12 +94,15 @@ export default {
 
 .secondary-poster {
     height: 550px;
-    background-color: black;
     border: 1px solid black;
     box-shadow: 0px 0px 20px black;
 
     .language img {
         width: 30px;
+    }
+
+    .fa-star {
+        color: goldenrod;
     }
 }
 </style>
