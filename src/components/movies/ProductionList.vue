@@ -12,15 +12,28 @@ export default {
 </script>
 
 <template>
-    <section>
-        <h2>Movies</h2>
-        <ProductionCard v-for="movie in store.movies" :key="movie.id" :production="movie" />
+    <section class="py-5">
+        <h2 class="mb-4">Movies</h2>
+        <div class="row layout">
+            <ProductionCard v-for="movie in store.movies" :key="movie.id" :production="movie" />
+        </div>
     </section>
 
-    <section>
-        <h2>Series</h2>
-        <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
+    <section class="py-5">
+        <h2 class="mb-4">Series</h2>
+        <div class="row">
+            <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
+        </div>
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h2 {
+    color: white;
+    font-weight: 600;
+}
+
+section .layout {
+    row-gap: 100px;
+}
+</style>

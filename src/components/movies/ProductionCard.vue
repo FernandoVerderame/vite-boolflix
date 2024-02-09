@@ -42,23 +42,62 @@ export default {
 </script>
 
 <template>
-    <div class="movies-card">
-        <div>{{ title }}</div>
-        <div>{{ originalTitle }}</div>
-        <div>
-            <img v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
-            <span v-else>{{ production.original_language }}</span>
-        </div>
-        <div>{{ roundedVote }}</div>
-        <div>
-            <img v-if="hasPoster" :src="posterSrc" :alt="production.poster_path">
-            <img class="poster-image" v-else src="../../assets/img/poster-path.jpg" alt="poster-path">
+    <div class="col-4 d-flex justify-content-center">
+        <div class="movies-card">
+            <div class="main-poster">
+                <img v-if="hasPoster" :src="posterSrc" :alt="production.poster_path">
+                <img class="poster-image" v-else src="../../assets/img/poster-path.jpg" alt="poster-path">
+            </div>
+            <div class="secondary-poster">
+                <div>{{ title }}</div>
+                <div>{{ originalTitle }}</div>
+                <div class="language">
+                    <img v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
+                    <span v-else>{{ production.original_language }}</span>
+                </div>
+                <div>{{ roundedVote }}</div>
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.poster-image {
+.movies-card {
+    color: white;
     width: 342px;
+
+    .secondary-poster,
+    &:hover .main-poster {
+        display: none;
+    }
+
+    &:hover .secondary-poster {
+        display: block;
+    }
+}
+
+.main-poster {
+
+    img {
+        height: 550px;
+        width: 342px;
+        border: 1px solid black;
+        box-shadow: 0px 0px 20px black;
+
+        .poster-image {
+            width: 342px;
+        }
+    }
+}
+
+.secondary-poster {
+    height: 550px;
+    background-color: black;
+    border: 1px solid black;
+    box-shadow: 0px 0px 20px black;
+
+    .language img {
+        width: 30px;
+    }
 }
 </style>

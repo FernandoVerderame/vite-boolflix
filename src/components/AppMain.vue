@@ -9,7 +9,15 @@ export default {
 </script>
 
 <template>
-    <ProductionList />
+    <main>
+        <div class="container">
+            <ProductionList />
+        </div>
+    </main>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+main {
+    background-color: #1B1B1B;
+}
+</style>
