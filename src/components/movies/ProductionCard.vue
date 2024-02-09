@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-    <div class="col-4 d-flex justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-4  d-flex justify-content-center">
         <div class="movies-card">
             <div class="main-poster">
                 <img v-if="hasPoster" :src="posterSrc" :alt="production.poster_path">
