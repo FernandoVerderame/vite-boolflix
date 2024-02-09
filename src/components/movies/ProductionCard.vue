@@ -49,16 +49,20 @@ export default {
                 <img class="poster-image" v-else src="../../assets/img/poster-path.jpg" alt="poster-path">
             </div>
             <div class="secondary-poster">
-                <div>{{ title }}</div>
-                <div>{{ originalTitle }}</div>
+                <div><strong>Titolo: </strong>{{ title }}</div>
+                <div><strong>Titolo originale: </strong>{{ originalTitle }}</div>
                 <div class="language">
                     <img v-if="hasFlag" :src="flagSrc" :alt="production.original_language">
                     <span v-else>{{ production.original_language }}</span>
                 </div>
                 <div>
-                    <i v-for="n in 5" :key="n" class="fa-star" :class="n <= roundedVote ? 'fas' : 'far'"></i>
+                    <span><strong>Voto: </strong><i v-for="n in 5" :key="n" class="fa-star"
+                            :class="n <= roundedVote ? 'fas' : 'far'"></i></span>
                 </div>
-                <div>{{ production.overview }}</div>
+                <div>
+                    <strong>Overview: </strong>
+                    <div class="overview">{{ production.overview }}</div>
+                </div>
             </div>
         </div>
     </div>
@@ -106,5 +110,10 @@ export default {
     .fa-star {
         color: goldenrod;
     }
+}
+
+.overview {
+    height: 350px;
+    overflow: auto;
 }
 </style>
