@@ -7,30 +7,48 @@ export default {
 
     data: () => ({ store }),
 
-    components: { ProductionCard }
+    components: { ProductionCard },
+
+    computed: {
+        isEmpty() {
+            return !this.store.movies.length && !this.store.series.length;
+        }
+    }
 };
 </script>
 
 <template>
-    <section class="py-5">
-        <h2 class="mb-4">Movies</h2>
-        <div class="row layout">
-            <ProductionCard v-for="movie in store.movies" :key="movie.id" :production="movie" />
-        </div>
-    </section>
+    <div v-if="isEmpty">
+        <section class="sec-search">
+            <h2 class="mb-4 text-center">Cerca un film o una serie TV!</h2>
+        </section>
+    </div>
 
-    <section class="py-5">
-        <h2 class="mb-4">Series</h2>
-        <div class="row layout">
-            <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
-        </div>
-    </section>
+    <div v-else>
+        <section class="py-5">
+            <h2 class="mb-4">Movies</h2>
+            <div class="row layout">
+                <ProductionCard v-for="movie in store.movies" :key="movie.id" :production="movie" />
+            </div>
+        </section>
+
+        <section class="py-5">
+            <h2 class="mb-4">Series</h2>
+            <div class="row layout">
+                <ProductionCard v-for="serie in store.series" :key="serie.id" :production="serie" />
+            </div>
+        </section>
+    </div>
 </template>
 
 <style lang="scss" scoped>
 h2 {
     color: white;
     font-weight: 600;
+}
+
+.sec-search {
+    padding-top: 150px;
 }
 
 section .layout {
