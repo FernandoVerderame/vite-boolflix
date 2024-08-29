@@ -49,6 +49,7 @@ export default {
 <style lang="scss" scoped>
 header {
     background-color: #EE3424;
+    height: 80px;
 }
 
 .nav-bar {
@@ -57,7 +58,8 @@ header {
 
     .nav-left {
         img {
-            width: 250px;
+            width: 150px;
+            margin-right: 20px;
         }
     }
 
